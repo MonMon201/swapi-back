@@ -21,7 +21,7 @@
     "prettier": "prettier --write ."
   },
   "name": "swapi-back",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "back-end",
   "main": "index.js",
   "repository": "https://github.com/MonMon201/swapi-back",
