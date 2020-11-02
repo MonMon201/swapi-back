@@ -22,12 +22,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install, build, test
         run: |
-          npm install
-          npm test
+          yarn install
+          yarn test:ci
         #  - name: Prettier
-        #    run: npm run prettier
+        #    run: yarn run prettier
         # Unclear ploblem with eslint
         #  - name: Eslint
-        #    run: npm run eslint
+        #    run: yarn run eslint
         env:
           CI: true

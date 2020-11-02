@@ -18,7 +18,8 @@
     "dev": "nodemon index.js",
     "test": "NODE_ENV=test jest --watchAll",
     "lint": "eslint --fix *.js && eslint --fix **/*.js && eslint --fix **/**/*.js",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "test:ci": "jest --forceExit"
   },
   "name": "swapi-back",
   "version": "1.0.0",

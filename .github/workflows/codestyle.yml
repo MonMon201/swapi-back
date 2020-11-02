@@ -21,7 +21,7 @@ jobs:
           node-version: 12
 
       - name: Install Node.js dependencies
-        run: npm i
+        run: yarn i
 
       - name: Run linters
         uses: wearerequired/lint-action@v1
