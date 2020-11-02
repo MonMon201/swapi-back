@@ -42,6 +42,8 @@ app.get('/search-people', (req, res) => {
         .catch(() => {
           res.send([]);
         });
+      } else{
+        res.send([]);
       }
     })
     .catch((err) => {
