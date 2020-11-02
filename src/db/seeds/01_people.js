@@ -1,13 +1,12 @@
 'use strict';
 
-exports.seed = (knex) => {
-  return knex('characters')
+exports.seed = (knex) =>
+  knex('characters')
     .del()
     .then(() =>
       knex('characters').insert({
-          homeworld : "Tatooine",
-          name : "Luke Skywalker",
-          gender : "male",
-        })
+        homeworld: 'Tatooine',
+        name: 'Luke Skywalker',
+        gender: 'male',
+      })
     );
-};

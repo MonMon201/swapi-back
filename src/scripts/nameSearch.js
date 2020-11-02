@@ -1,20 +1,17 @@
-'use strict'
+'use strict';
 
 const nameSearch = (name, names) => {
-    
-    for(let i = 0; i < names.length; i++){
+  for (let i = 0; i < names.length; i++) {
+    const curr = names[i].name.toUpperCase();
+    const upperName = name.toUpperCase();
 
-        const curr = names[i].name.toUpperCase();
-        const upperName = name.toUpperCase();
-        
-        if(curr.includes(upperName)){
-            return names[i].name;
-        }
-
+    if (curr.includes(upperName)) {
+      return names[i].name;
     }
-    return [];
-}
+  }
+  return [];
+};
 
 module.exports = {
-    nameSearch,
-}
+  nameSearch,
+};
