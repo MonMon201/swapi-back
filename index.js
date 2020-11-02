@@ -5,11 +5,10 @@ require('dotenv').config()
 app.use(cors())
 
 app.get('/', (req, res)=>{
-    res.send({
-        homeworld: "Tatooine",
-        name: "Luke Skywalker",
-        gender: "male",
-      })
+    // getting all names to deliver them to the front-end
+    knex.select('name').from('characters').then((data)=>{
+        res.send(data);
+    })
 })
 
 exports.app = app;
@@ -38,7 +37,7 @@ if (process.env.NODE_ENV !== "test"){
                 gender : character.gender,
               }).into('characters');
             }
-            
+
             console.log(`Server has been initiated on ${process.env.PORT}`);
           }).catch((err)=>{
             throw err;
