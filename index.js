@@ -1,13 +1,17 @@
 const app = require('express')()
 const cors = require('cors')
+const { fetchAllPeople } = require('./src/scripts/fetchAllPeople')
+const knex = require('./src/db/knex.js')
 require('dotenv').config()
 
 app.use(cors())
 
 app.get('/', (req, res)=>{
-    // getting all names to deliver them to the front-end
+    // getting all names to deliver them to front-end
     knex.select('name').from('characters').then((data)=>{
         res.send(data);
+    }).catch((err) =>{
+        throw err;
     })
 })
 
@@ -23,7 +27,9 @@ if (process.env.NODE_ENV !== "test"){
           console.log('rollback is successful')
           knex.migrate.latest().then(()=>{
             console.log('migration is successful')
-          })
+          }).catch((err) =>{
+            throw err;
+        })
 
         // fetching characters from swapi
           fetchAllPeople().then(async (data) => {
@@ -35,7 +41,9 @@ if (process.env.NODE_ENV !== "test"){
                 homeworld : character.homeworld,
                 name : character.name,
                 gender : character.gender,
-              }).into('characters');
+              }).into('characters').catch((err) =>{
+                throw err;
+            });
             }
 
             console.log(`Server has been initiated on ${process.env.PORT}`);
