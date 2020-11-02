@@ -15,6 +15,26 @@ app.get('/', (req, res)=>{
     })
 })
 
+app.get('/search-people', (req, res) => {
+
+    // selecting names of all the characters
+    knex.select('name').from('characters').then((data)=>{
+
+    // name validation
+    const name = nameSearch(req.query.name, data)
+
+    // selecting data and sending it to front-end
+    knex.select('homeworld', 'name', 'gender').from('characters').where('name', name).then((data)=>{
+      res.send(data);
+    }).catch(() =>{
+      res.send([]);
+    })
+
+  }).catch((err) =>{
+      throw err;
+})
+})
+
 exports.app = app;
 
 if (process.env.NODE_ENV !== "test"){
