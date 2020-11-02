@@ -1,6 +1,7 @@
 const app = require('express')()
 const cors = require('cors')
 const { fetchAllPeople } = require('./src/scripts/fetchAllPeople')
+const { nameSearch } = require('./src/scripts/nameSearch')
 const knex = require('./src/db/knex.js')
 require('dotenv').config()
 

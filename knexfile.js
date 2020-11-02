@@ -4,10 +4,10 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      host: process.env.host,
-      user: process.env.user,
-      password: process.env.password,
-      database: process.env.password,
+      host: process.env.PGhost,
+      user: process.env.PGuser,
+      password: process.env.PGpassword,
+      database: process.env.PGdatabase,
     },
     migrations: {
       directory: __dirname + '/src/db/migrations',
@@ -29,10 +29,10 @@ module.exports = {
   test: {
     client: 'pg',
     connection: {
-      host: process.env.host,
-      user: process.env.user,
-      password: process.env.password,
-      database: process.env.password,
+      host: process.env.PGhost,
+      user: process.env.PGuser,
+      password: process.env.PGpassword,
+      database: process.env.PGdatabase,
     },
     migrations: {
       directory: __dirname + '/src/db/migrations',
