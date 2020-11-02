@@ -27,6 +27,7 @@ app.get('/search-people', (req, res) => {
     .select('name')
     .from('characters')
     .then((data) => {
+      if(req.query.name.length>0){
       // name validation
       const name = nameSearch(req.query.name, data);
 
@@ -41,6 +42,7 @@ app.get('/search-people', (req, res) => {
         .catch(() => {
           res.send([]);
         });
+      }
     })
     .catch((err) => {
       throw err;

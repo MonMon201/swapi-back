@@ -15,7 +15,7 @@
     "swapi-node": "^0.6.0"
   },
   "scripts": {
-    "dev": "nodemon index.js",
+    "start": "nodemon index.js",
     "test": "NODE_ENV=test jest --watchAll",
     "lint": "eslint --fix *.js && eslint --fix **/*.js && eslint --fix **/**/*.js",
     "prettier": "prettier --write .",
